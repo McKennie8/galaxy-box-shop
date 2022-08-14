@@ -1,0 +1,46 @@
+
+
+<h1>{{section.settings.heading}}</h1>
+
+<h3>{{section.settings.question}}</h3>
+<p>{{section.settings.answer}}</p>
+
+
+{% schema %}
+
+{
+    "name": "customer questions",
+    "settings": [
+        {
+        "type": "text",
+        "label": "heading for faq",
+        "id": "heading"    
+
+        }
+       
+       
+    ],
+    "blocks":[
+        {   
+            "type":"QA",
+            "name":"Question/Answer",
+            "settings":[
+                 {
+                    "type": "text",
+                    "label": "customer questions",
+                    "id": "question"    
+
+                    },
+                    {
+                    "type": "richtext",
+                    "label": "answer for faq",
+                    "id": "answer"    
+
+        }
+            ]
+
+        }
+    ]
+
+}
+{% endschema %}
