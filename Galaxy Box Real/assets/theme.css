@@ -7060,3 +7060,9 @@ hr {
     max-height: 100vh;
     padding: 1em;
   }
+
+  .jdgm-prev-badge__text { display: none !important; }
+
+  .jdgm-histogram__bar-content {
+    background-color: orangered !important;
+  }
