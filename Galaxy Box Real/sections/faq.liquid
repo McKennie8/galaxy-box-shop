@@ -2,8 +2,12 @@
 
 <h1>{{section.settings.heading}}</h1>
 
-<h3>{{section.settings.question}}</h3>
-<p>{{section.settings.answer}}</p>
+
+
+{% for block in section.blocks %}
+<h3>{{block.settings.question}}</h3>
+<p>{{block.settings.answer}}</p>
+{% endfor %}
 
 
 {% schema %}
@@ -16,6 +20,18 @@
         "label": "heading for faq",
         "id": "heading"    
 
+        },
+        {
+        "type": "text",
+        "label": "question for faq",
+        "id": "question"    
+
+        },
+        {
+        "type": "textarea",
+        "label": "answer for faq",
+        "id": "answer"    
+
         }
 
         
@@ -25,7 +41,7 @@
             "type":"QA",
             "name":"Question/Answer",
             "settings":[
-                 {
+                    {
                     "type": "text",
                     "label": "customer questions",
                     "id": "question"    
