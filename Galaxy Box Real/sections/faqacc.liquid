@@ -1,58 +1,85 @@
-<div class="shopify_explorer__content">
-  {%- assign expand_questions = section.settings.expand_questions -%}
-  {%- for block in section.blocks -%}
-    {%- case block.type -%}
-      {%- when 'separator' -%}
-        <h3 class="shopify_explorer_faq__separator h3" {{ block.shopify_attributes }}>{{ block.settings.title | escape }}</h3>
-      {%- when 'question' -%}
-        <div class="shopify_explorer_faq__item {% unless expand_questions %}shopify_explorer_faq__item--expandable{% endunless %}" {{ block.shopify_attributes }}>
-          <h3 class="shopify_explorer_faq__question h5 {% unless expand_questions %}link{% endunless %}">{{ block.settings.title }}</h3>
-          <div class="shopify_explorer_faq__answer rte">
-            {{ block.settings.answer }}
-          </div>
-        </div>
-    {%- endcase -%}
-  {%- endfor -%}
-</div>
+<h1>{{section.settings.heading}}</h1>
+
+<div class="faq">
+{% for block in section.blocks %}
+  {% if block.type == 'QA' %}
+    <div class="question">
+      <input type="checkbox" id="question-{{forloop.index}}" class="question-toggle">
+      <label for="question-{{forloop.index}}" class="question-label">{{block.settings.question}}</label>
+      <div class="answer">
+      {{block.settings.answer}}
+      </div>
+    </div>
+    {% elsif block.type == 'headline' %}
+    <h4>{{block.settings.title}}</h4>
+    {% endif %}
+
+{% endfor %}
+
+
 {% schema %}
-  {
-    "name": "FAQs",
+
+{
+    "name": "customer questions",
     "settings": [
-      {
-        "type": "checkbox",
-        "id": "expand_questions",
-        "label": "Expand all questions by default",
-        "default": false
-      }
-  ],
-    "blocks": [
-      {
-        "type": "separator",
-        "name": "Section separator",
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Heading"
-          }
-        ]
-      },
-      {
-        "type": "question",
-        "name": "Question",
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Question"
-          },
-          {
-            "type": "richtext",
-            "id": "answer",
-            "label": "Answer"
-          }
-        ]
-      }
+        {
+        "type": "text",
+        "label": "heading for faq",
+        "id": "heading"    
+
+        },
+        {
+        "type": "text",
+        "label": "question for faq",
+        "id": "question"    
+
+        },
+        {
+        "type": "textarea",
+        "label": "answer for faq",
+        "id": "answer"    
+
+        }
+
+        
+    ],
+    "blocks":[
+        {   
+            "type":"QA",
+            "name":"Question/Answer",
+            "settings":[
+                    {
+                    "type": "text",
+                    "label": "customer questions",
+                    "id": "question"    
+
+                    },
+                    {
+                    "type": "richtext",
+                    "label": "answer for faq",
+                    "id": "answer"    
+
+                    }
+                    
+            ]
+
+        },
+                    {   
+            "type":"headline",
+            "name":"Headline",
+            "settings":[
+                    {
+                    "type": "text",
+                    "label": "Question Headline",
+                    "id": "headline"    
+
+                    }
+                    
+                    
+            ]
+
+        }
     ]
-  }
+
+}
 {% endschema %}
