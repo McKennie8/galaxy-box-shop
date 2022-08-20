@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Let's build a tab selector</title>
+    <style>
+        .container {
+            width: 80%;
+            height: 50%;
+            border: 1px solid grey;
+            margin: 0 auto;
+        }
+        .selector {
+            display: flex;
+            border-bottom: 1px solid grey;
+            background-color: #f1f1f1;
+        }
+        .tab {
+            padding: 10px;
+        }
+        .tab:hover {
+            cursor: pointer;
+            background-color: darkgrey;
+        }
+        .content {
+            padding: 10px;
+        }
+        .content-body {
+            display: none;
+        }
+        .show-active {
+            display: block;
+            animation: fade 1s;
+        }
+        .tab-active {
+            background-color: darkgrey;
+        }
+        @keyframes fade {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity:1;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="selector">
+            <div class="tab tab-active">
+                Description
+            </div>
+            <div class="tab">
+                Details
+            </div>
+            <div class="tab">
+                Shipping
+            </div>
+        </div>
+        <div class="content">
+            <div id="Description" class="content-body show-active">
+                <h4>product description</h4>
+            </div>
+            <div id="Details" class="content-body">
+                <h4>if we have product details</h4>
+
+                    Package Dimensions  -> 6.06 x 6.02 x 4.75 inches
+                    Voltage -> 120 V
+                    Frequency -> 60 Hz
+                    Wattage -> 5w
+                
+            </div>
+            <div id="Shipping" class="content-body">
+                <p>Your order will be shipped the same, or next, business day. During sale events and holidays, there may be a slightly longer duration</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // function to remove show-active class & add to clicked
+        function setActiveContent(el) {
+            // select all .content-body
+            var contentBodies = document.getElementsByClassName('content-body');
+            // remove .show-active
+            for (var contentBody of contentBodies) {
+                contentBody.classList.remove('show-active');
+            }
+            // add .show-active (back) to clicked 
+            document.
+                getElementById(el.textContent.trim())
+                .classList.add('show-active');
+        }
+
+        function setActiveTab(el){
+            var tabs = document.getElementsByClassName('tab');
+            for (var tab of tabs) {
+                tab.classList.remove('tab-active');
+            }
+            el.classList.add('tab-active');
+        }
+
+        // select .tab class, and loop through
+        var tabs = document.getElementsByClassName('tab');
+        for (var tab of tabs) {
+            // add click listener to each tab
+            tab.addEventListener('click', function(e) {
+                setActiveContent(e.currentTarget);
+                setActiveTab(e.currentTarget);
+            })
+        }
+    </script>
+</body>
+</html>
