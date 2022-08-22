@@ -288,20 +288,52 @@
         >
         </div>
 
-        <div class="product-single__description rte">
+
+     
+     
+    <div class="container">
+      <div class="selector">
+        <div class="tab tab-active">
+          Description
+        </div>
+        {% unless product.metafields.description.details-us == blank%}
+        <div class="tab">
+          Details
+        </div>
+        {% endunless %}
+        <div class="tab">
+          Shipping
+        </div>
+      </div>
+      <div class="content">
+        <div id="Description" class="content-body show-active">
           {{ product.description }}
-
-       
-
         </div>
 
-        {% if section.settings.show_share_buttons %}
-          {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}
-        {% endif %}
+        {% unless product.metafields.description.details-us == blank%}
+   
+        <div id="Details" class="content-body">
+          {{ product.metafields.description.details-us }}
+
+        </div>
+        {% endunless}
+        <div id="Shipping" class="content-body">
+          <p>Your order will be shipped within 24 hours.  Check our app for live tracking of your shipment.</p>
+        </div>
+      </div>
     </div>
-    {% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: false, product: product %}
-  </div>
-</div>
+          <div class="product-single__description rte">
+          {{ product.description }}
+
+          </div>
+      
+        {% if section.settings.show_share_buttons %}
+        {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}
+        {% endif %}
+        </div>
+        {% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: false, product: product %}
+        </div>
+
 
 {% unless product == empty %}
   <script type="application/json" id="ProductJson-{{ section.id }}">
