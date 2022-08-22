@@ -288,6 +288,7 @@
         >
         </div>
 
+<<<<<<< HEAD
 
      
      
@@ -314,7 +315,43 @@
    
         <div id="Details" class="content-body">
           {{ product.metafields.description.details-us }}
+=======
+        <div class="product-single__description rte">
+>>>>>>> 2746e95378267c5e89579080d4b9fa879602ba9b
 
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="selector">
+            <div class="tab tab-active">
+                {{'customizations.product.description'| t }}
+            </div>
+            {%unless product.metafields.description.details == blank%}
+            <div class="tab">
+                {{'customizations.product.details'| t }}
+            </div>
+            <div class="tab">
+                {{'customizations.product.shipping_info'| t }}
+            </div>
+        </div>
+        <div class="content">
+            <div id="Description" class="content-body show-active">
+                {{ product.description }} 
+            </div>
+            {%unless product.metafields.description.details == blank%}
+            <div id="Details" class="content-body">
+                {{product.metafields.description.details}}
+            </div>
+             
+            {% endunless %}
+            
+            <div id="Shipping" class="content-body">
+                <p>{{'customizations.product.shipping' | t }}</p>
+            </div>
+        </div>
+    </div>
+        
         </div>
         {% endunless}
         <div id="Shipping" class="content-body">
@@ -345,8 +382,8 @@
 {% endunless %}
 
 
-
 {% schema %}
+
 {
   "name": {
     "cs": "Stránky produktů",
