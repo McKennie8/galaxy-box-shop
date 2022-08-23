@@ -9685,7 +9685,7 @@ function removeImageLoadingAnimation(image) {
     imageWrapper.removeAttribute('data-image-loading-animation');
   }
 }
-<<<<<<< HEAD
+
   // function to remove show-active class & add to clicked
   function setActiveContent(el) {
     // select all .content-body
@@ -9706,8 +9706,10 @@ function setActiveTab(el){
         tab.classList.remove('tab-active');
     }
     el.classList.add('tab-active');
-=======
-function setActiveContent(el) {
+  }
+
+ // function to remove show-active class & add to clicked
+ function setActiveContent(el) {
   // select all .content-body
   var contentBodies = document.getElementsByClassName('content-body');
   // remove .show-active
@@ -9726,23 +9728,15 @@ function setActiveTab(el){
       tab.classList.remove('tab-active');
   }
   el.classList.add('tab-active');
->>>>>>> 2746e95378267c5e89579080d4b9fa879602ba9b
 }
 
 // select .tab class, and loop through
 var tabs = document.getElementsByClassName('tab');
 for (var tab of tabs) {
-<<<<<<< HEAD
-    // add click listener to each tab
-    tab.addEventListener('click', function(e) {
-        setActiveContent(e.currentTarget);
-        setActiveTab(e.currentTarget);
-    })
-=======
   // add click listener to each tab
   tab.addEventListener('click', function(e) {
       setActiveContent(e.currentTarget);
       setActiveTab(e.currentTarget);
   })
->>>>>>> 2746e95378267c5e89579080d4b9fa879602ba9b
 }
+

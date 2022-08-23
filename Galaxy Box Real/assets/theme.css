@@ -7067,7 +7067,7 @@ hr {
     background-color: orangered !important;
   }
 
-<<<<<<< HEAD
+
   /* style for description tabs*/
 
   .container {
@@ -7142,14 +7142,15 @@ hr {
         }
         .content-body {
             display: none;
-            min-height: 200px;
+            min-height: 250px;
         }
         .show-active {
             display: block;
             animation: fade 1s;
         }
         .tab-active {
-            
+            background-color: none;
+            text-decoration: underline;
         }
         @keyframes fade {
             from {
@@ -7159,4 +7160,4 @@ hr {
                 opacity:1;
             }
         }
->>>>>>> 2746e95378267c5e89579080d4b9fa879602ba9b
+
