@@ -312,8 +312,12 @@
 
         {% unless product.metafields.description.details-us == blank %}
         <div id="Details" class="content-body">
+        <div id="details-us">
           {{ product.metafields.description.details-us }}
         </div>
+        
+        <div id="details-eu">
+          {{ product.metafields.description.details-eu }}
         {% endunless %}
         <div id="Shipping" class="content-body">
           <p>Your order will be shipped within 24 hours.  Check our app for live tracking of your shipment.</p>
